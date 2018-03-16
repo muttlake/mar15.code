@@ -4,6 +4,9 @@ using System;
 using System.Collections.Generic;
 using ContactApp.Library.Interfaces;
 using ContactApp.Library.Models;
+using System.IO;
+using System.Xml.Serialization;
+using System.Linq;
 
 namespace ContactApp.Library
 {
@@ -51,7 +54,48 @@ namespace ContactApp.Library
             _container.Clear();
         }
 
+        public void WriteToText()
+        {
+            string path = @"C:\Revature\mar15Code.redo\mar15.code\contacts.txt";
+            using(var outputFile = new StreamWriter(path))
+            {
+                foreach (var item in _container)
+                {
+                    outputFile.WriteLine(item);
+                }
+            }
+        }
 
+        public void WriteToXml()
+        {
+            string path = @"C:\Revature\mar15Code.redo\mar15.code\contacts.xml";
+
+            using(var outStream = new StreamWriter(path))
+            {
+                var xmlSerializer = new XmlSerializer(typeof(T));
+                xmlSerializer.Serialize(outStream, _container.FirstOrDefault());
+
+                // foreach (var item in _container)
+                // {
+                //     xmlSerializer.Serialize(outStream, item);
+                // }
+            }
+
+        }
+
+        public T ReadFromXml()
+        {
+            string path = @"C:\Revature\mar15Code.redo\mar15.code\contacts.xml";
+            T t;
+
+            using (var inStream = new StreamReader(path))
+            {
+                var xmlSerializer = new XmlSerializer(typeof(T));
+                t = (T) xmlSerializer.Deserialize(inStream);
+            }
+
+            return t;
+        }
 
 
 

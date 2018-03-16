@@ -2,6 +2,8 @@
 
 using System.Collections.Generic;
 using ContactApp.Library.Enums;
+using System.Xml.Serialization;
+
 
 namespace ContactApp.Library.Models
 {
@@ -9,7 +11,11 @@ namespace ContactApp.Library.Models
     {
         public Name Name { get; set; }
         public Phone Phone { get; set; }
+        
+        [XmlIgnore]
         public Dictionary<ContactEnum, string> Email { get; set; }
+
+        [XmlIgnore]
         public Dictionary<ContactEnum, Address> Address { get; set; }
 
         public Person()

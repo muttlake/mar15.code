@@ -13,7 +13,7 @@ namespace ContactApp.Client
         static void PlayWithContacts()
         {
             var ch = new ContactHelper<Person>();
-            ch.Add(new Person());
+            ch.Add(new Person("Betty", "White"));
             ch.Add(new Person("Crocker", "Davis"));
             ch.Add(new Person("Horace", "Slughorn"));
 
@@ -24,6 +24,12 @@ namespace ContactApp.Client
             {
                 Console.WriteLine(item);
             }
+            // ch.WriteToText();
+            ch.WriteToXml();
+            Person p = ch.ReadFromXml() as Person;
+            ch.Add(p);
+            ch.WriteToText();
+            ch.Clear();
         }
     }
 }

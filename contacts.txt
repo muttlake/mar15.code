@@ -1,0 +1,25 @@
+
+Betty White
+000 000-0000
+System.Collections.Generic.Dictionary`2[ContactApp.Library.Enums.ContactEnum,System.String]
+System.Collections.Generic.Dictionary`2[ContactApp.Library.Enums.ContactEnum,ContactApp.Library.Models.Address]
+
+Crocker Davis
+000 000-0000
+System.Collections.Generic.Dictionary`2[ContactApp.Library.Enums.ContactEnum,System.String]
+System.Collections.Generic.Dictionary`2[ContactApp.Library.Enums.ContactEnum,ContactApp.Library.Models.Address]
+
+Horace Slughorn
+000 000-0000
+System.Collections.Generic.Dictionary`2[ContactApp.Library.Enums.ContactEnum,System.String]
+System.Collections.Generic.Dictionary`2[ContactApp.Library.Enums.ContactEnum,ContactApp.Library.Models.Address]
+
+Alfred the Great
+777 345-3455
+System.Collections.Generic.Dictionary`2[ContactApp.Library.Enums.ContactEnum,System.String]
+System.Collections.Generic.Dictionary`2[ContactApp.Library.Enums.ContactEnum,ContactApp.Library.Models.Address]
+
+Betty White
+000 000-0000
+System.Collections.Generic.Dictionary`2[ContactApp.Library.Enums.ContactEnum,System.String]
+System.Collections.Generic.Dictionary`2[ContactApp.Library.Enums.ContactEnum,ContactApp.Library.Models.Address]
