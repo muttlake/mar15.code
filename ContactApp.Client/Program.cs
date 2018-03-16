@@ -8,7 +8,17 @@ namespace ContactApp.Client
     {
         static void Main(string[] args)
         {
-            PlayWithContacts();
+            //PlayWithContacts();
+            PlayWithEvents();
+        }
+
+        static void PlayWithEvents()
+        {
+            var b = new Broadcaster();
+            var r = new Receiver();
+
+            r.Receive(b);
+            b.Broadcast();
         }
         static void PlayWithContacts()
         {
