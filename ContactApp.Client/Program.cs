@@ -8,8 +8,9 @@ namespace ContactApp.Client
     {
         static void Main(string[] args)
         {
-            PlayWithContacts();
-            PlayWithEvents();
+            //PlayWithContacts();
+            //PlayWithEvents();
+            PlayWithEvents2();
         }
 
         static void PlayWithEvents()
@@ -20,6 +21,18 @@ namespace ContactApp.Client
             b.Broadcast();
             r.Receive(b);
             b.Broadcast();
+        }
+
+        static void PlayWithEvents2()
+        {
+            var b = new Broadcaster2();
+            var r = new Receiver2();
+            var r2 = new Receiver2();
+
+            r.Receiving(b);
+            r2.Receiving(b);
+
+            b.BroadCast();
         }
         static void PlayWithContacts()
         {
@@ -41,6 +54,9 @@ namespace ContactApp.Client
             ch.Add(p);
             ch.WriteToText();
             ch.Clear();
+
+            Console.WriteLine("\n\n");
+            ch.PlayWithDelegates();
         }
     }
 }

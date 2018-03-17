@@ -102,6 +102,8 @@ namespace ContactApp.Library
             var a = _container.First(p => p.PId == t.PId);
             var a2 = _container.First(p => true);
             var a3 = _container.First(p => p.PId < t.PId);
+            var a4 = _container.Where(p => p.PId == t.PId).First();
+            var a5 = _container.Where(p => false);
             int foundIndex = GetItemIndex(t);
             if(foundIndex == -999)
                 Console.WriteLine("Item with PID not found.");
@@ -124,6 +126,40 @@ namespace ContactApp.Library
                 }
             }
             return foundIndex;
+        }
+
+
+        public void PlayWithDelegates()
+        {
+            Action<int> myAction = new Action<int>(WriteHello);
+            myAction(123);
+
+            Func<int, int> myFunc = new Func<int, int>(GetDouble);
+            Console.WriteLine(myFunc(123));
+
+            Predicate<int> myPred = new Predicate<int>(GetNumberLessThan5);
+            for(int i = 0; i < 10; i++)
+                if (myPred(i))
+                    Console.WriteLine("Number Less than 5");
+
+
+
+        }
+
+
+        private void WriteHello(int num)
+        {
+            Console.WriteLine("Hello");
+        }
+
+        private int GetDouble(int num)
+        {
+            return num*num;
+        }
+
+        private bool GetNumberLessThan5(int num)
+        {
+            return num < 5;
         }
 
 
