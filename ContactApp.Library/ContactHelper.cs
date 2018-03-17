@@ -10,7 +10,7 @@ using System.Linq;
 
 namespace ContactApp.Library
 {
-    public class ContactHelper<T> : IContact
+    public class ContactHelper<T> where T : IContact, new()  // T must be of type IContact, and must have constructor
     {
         private static List<T> _container = new List<T>();
 
@@ -95,6 +95,35 @@ namespace ContactApp.Library
             }
 
             return t;
+        }
+
+        public void Update(T t)
+        {
+            var a = _container.First(p => p.PId == t.PId);
+            var a2 = _container.First(p => true);
+            var a3 = _container.First(p => p.PId < t.PId);
+            int foundIndex = GetItemIndex(t);
+            if(foundIndex == -999)
+                Console.WriteLine("Item with PID not found.");
+            else
+            {
+                _container[foundIndex] = t;
+            }
+            
+        }
+
+        private int GetItemIndex(T t)
+        {
+            int foundIndex = -999;
+            for (int i = 0; i < _container.Count; i += 1)
+            {
+                if(_container[i].PId == t.PId)
+                {
+                    foundIndex = i;
+                    break;
+                }
+            }
+            return foundIndex;
         }
 
 

@@ -3,12 +3,15 @@
 using System.Collections.Generic;
 using ContactApp.Library.Enums;
 using System.Xml.Serialization;
-
+using ContactApp.Library.Interfaces;
+using System;
 
 namespace ContactApp.Library.Models
 {
-    public class Person
+    public class Person: IContact
     {
+
+        public long PId { get; set; }
         public Name Name { get; set; }
         public Phone Phone { get; set; }
         
@@ -32,6 +35,7 @@ namespace ContactApp.Library.Models
 
         public Person(string first, string last, string area, string number)
         {
+            PId = DateTime.Now.Ticks;
             Name = new Name(first, last);
             Phone = new Phone(area, number);
             Email = new Dictionary<ContactEnum, string>();
@@ -40,6 +44,7 @@ namespace ContactApp.Library.Models
 
         private void Init()
         {
+            PId = DateTime.Now.Ticks;
             Phone = new Phone();
             Email = new Dictionary<ContactEnum, string>();
             Address = new Dictionary<ContactEnum, Address>();
